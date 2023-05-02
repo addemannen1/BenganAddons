@@ -23,7 +23,7 @@ namespace Bengan {
         HardEncryption = 1,
         NoEncryption = 2,
     }
-    public static class SessionDataHandler
+    public static class BenganPrefs
     {
         private static readonly List<SessionList> sessionLists = new List<SessionList>();
         private static readonly List<VariableData> sessionVariables = new List<VariableData>();

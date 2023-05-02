@@ -19,13 +19,13 @@ public class VolumeManager : BenganVolumeMono<VolumeManager> {
     protected override void Awake() {
         base.Awake();
         //read from file
-        SessionDataHandler.Initialize();
-        SessionDataHandler.OpenFile("Settings");
-        master_slider.value = SessionDataHandler.GetVarFloat("MasterVolume",1f);
+        BenganPrefs.Initialize();
+        BenganPrefs.OpenFile("Settings");
+        master_slider.value = BenganPrefs.GetVarFloat("MasterVolume",1f);
         master_volume = master_slider.value;
-        music_slider.value = SessionDataHandler.GetVarFloat("MusicVolume",1f);
+        music_slider.value = BenganPrefs.GetVarFloat("MusicVolume",1f);
         music_volume = music_slider.value;
-        effects_slider.value = SessionDataHandler.GetVarFloat("EffectVolume",1f);
+        effects_slider.value = BenganPrefs.GetVarFloat("EffectVolume",1f);
         effect_volume = effects_slider.value;
         
         //set audio
@@ -45,24 +45,24 @@ public class VolumeManager : BenganVolumeMono<VolumeManager> {
         }
     }
     public void SetMasterVolume() {
-        SessionDataHandler.Initialize();
-        SessionDataHandler.OpenFile("Settings");
-        SessionDataHandler.SetVarFloat("MasterVolume",master_slider.value);
+        BenganPrefs.Initialize();
+        BenganPrefs.OpenFile("Settings");
+        BenganPrefs.SetVarFloat("MasterVolume",master_slider.value);
         master_volume = master_slider.value;
         foreach (var source in effect_sources) { source.volume = master_volume*effect_volume; }
         foreach (var source in music_sources) { source.volume = master_volume*music_volume; }
     }
     public void SetMusicVolume() {
-        SessionDataHandler.Initialize();
-        SessionDataHandler.OpenFile("Settings");
-        SessionDataHandler.SetVarFloat("MusicVolume",music_slider.value);
+        BenganPrefs.Initialize();
+        BenganPrefs.OpenFile("Settings");
+        BenganPrefs.SetVarFloat("MusicVolume",music_slider.value);
         music_volume = music_slider.value;
         foreach (var source in music_sources) { source.volume = music_volume*master_volume; }
     }
     public void SetEffectsVolume() {
-        SessionDataHandler.Initialize();
-        SessionDataHandler.OpenFile("Settings");
-        SessionDataHandler.SetVarFloat("EffectVolume",effects_slider.value);
+        BenganPrefs.Initialize();
+        BenganPrefs.OpenFile("Settings");
+        BenganPrefs.SetVarFloat("EffectVolume",effects_slider.value);
         effect_volume = effects_slider.value;
         foreach (var source in effect_sources) { source.volume = effect_volume*master_volume; }
     }
