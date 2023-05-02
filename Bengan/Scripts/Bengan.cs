@@ -35,8 +35,7 @@ namespace Bengan {
         public static void ClearData() { 
             File.Delete(Path.Combine(Application.persistentDataPath, "SessionVariables.txt")); 
             if(logMode == SessionLogMode.LogImportant || logMode == SessionLogMode.LogAll) Debug.Log(" -- SessionDataHandler -- Succesfully cleared the session save data.");
-            sessionLists.Clear();
-            sessionVariables.Clear();
+            sessionLists.Clear(); sessionVariables.Clear();
             UpdateFileContent();
         }
         private static string EncryptedString(string input_string)
