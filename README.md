@@ -8,5 +8,5 @@ There is also a volume manager script which you quickly can drag into your scrip
 
 BenganPrefs code example
 
-![bild](https://user-images.githubusercontent.com/53804907/235721430-d10b691a-7837-4bab-a79f-af52e2cb595c.png)
+![bild](https://user-images.githubusercontent.com/53804907/235722157-8f51168f-afba-4129-9725-0838fe162cb0.png)
 
